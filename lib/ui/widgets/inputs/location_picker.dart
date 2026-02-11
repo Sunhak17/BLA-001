@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../../../data/dummy_data.dart';
 import '../../../model/ride/locations.dart';
+import '../../../utils/animations_util.dart';
 import '../../theme/theme.dart';
 
 Future<Location?> showLocationPicker(
   BuildContext context, {
   String title = 'Select Location',
-}) async {
+}) {
   return Navigator.push<Location>(
     context,
-    MaterialPageRoute(
-      builder: (context) => _LocationPickerScreen(title: title),
+    AnimationsUtil.createBottomToTopRoute(
+      _LocationPickerScreen(title: title),
     ),
   );
 }
